@@ -1,0 +1,18 @@
+<!-- Firewall configuration information for Zabbix Monitoring system -->
+<ConfigRoot>
+ <service>
+ <id>zabbixMonitoring</id>
+ <rule id='0000'>
+ <direction>inbound</direction>
+ <protocol>tcp</protocol>
+ <port type='dst'>10050</port>
+ <flags>-m state --state NEW</flags>
+ </rule>
+ <rule id='0001'>
+ <direction>outbound</direction>
+ <protocol>tcp</protocol>
+ <port type='dst'>10051</port>
+ <flags>-m state --state NEW</flags>
+ </rule>
+ </service>
+</ConfigRoot>
