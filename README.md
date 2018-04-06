@@ -8,10 +8,7 @@ esxcli software acceptance set --level=CommunitySupported
 
 esxcli software vib install -v /full/path/to/zabbix-agent.vib -f
 
-
-
-
-
+----------------------------------------------------------------
 
 Agent zabbix for installation on Vmware Esxi. Tested on EsXi 6.0
 
