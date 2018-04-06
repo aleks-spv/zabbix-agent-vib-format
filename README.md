@@ -1,6 +1,6 @@
 
 
-Агент zabbix для установки на Vmware Esxi. Проверено на EsXi 6.0
+Агент zabbix (ver 3.2.7) для установки на Vmware Esxi. Проверено на EsXi 6.0
 
 Команды для установки:
 
@@ -10,7 +10,7 @@ esxcli software vib install -v /full/path/to/zabbix-agent.vib -f
 
 ----------------------------------------------------------------
 
-Agent zabbix for installation on Vmware Esxi. Tested on EsXi 6.0
+Agent zabbix (ver 3.2.7) for installation on Vmware Esxi. Tested on EsXi 6.0
 
 Commands to install:
 
