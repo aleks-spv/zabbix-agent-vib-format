@@ -20,8 +20,8 @@ start() {
     echo 'Service already running' >&2
     return 1
   fi
-  echo 'Starting zabbix-agent…' >&2
-	$DAEMON -c /usr/local/etc/zabbix_agentd.conf
+  echo 'Starting zabbix-agentâ€¦' >&2
+	$DAEMON -c /etc/zabbix_agentd.conf
   echo 'Service started' >&2
 }	
 
@@ -30,9 +30,21 @@ stop() {
     echo 'Service not running' >&2
     return 1
   fi
-  echo 'Stopping zabbix-agent…' >&2
+  echo 'Stopping zabbix-agentâ€¦' >&2
   kill -15 $(cat "$PIDFILE") && rm -f "$PIDFILE"
   echo 'Service stopped' >&2
+}
+
+save() {
+
+	./bin/zabbix_conf_save
+
+}
+
+uninstall() {
+
+	stop
+
 }
 
 case "$1" in
@@ -58,5 +70,5 @@ status)
     start
     ;;
   *)
-    echo "Usage: $0 {start|stop|status|restart}"
+    echo "Usage: $0 {start|stop|status|restart|save|}"
 esac
