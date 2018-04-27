@@ -1,0 +1,22 @@
+#!/bin/sh
+
+mkdir /tmp/zabbix_a
+cp --parents /bin/zabbix_* /tmp/zabbix_a/
+cp --parents /etc/init.d/zabbix-agent /tmp/zabbix_a/
+cp --parents /etc/vmware/firewall/zabbix_agent.xml /tmp/zabbix_a/
+cp --parents /etc/zabbix_agentd.conf /tmp/zabbix_a/
+
+cd /tmp/zabbix_a/
+tar -cf zabbix_a *
+gzip zabbix_a
+
+if [[ -f /bootbank/$(ls /bootbank | grep zabbix) ]]; then 
+cp zabbix_a.gz /bootbank/$(ls /bootbank | grep zabbix)
+
+else
+cp zabbix_a.gz /altbootbank/$(ls /altbootbank | grep zabbix)
+
+fi
+
+cd /
+rm -rf /tmp/zabbix_a
